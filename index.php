@@ -13,7 +13,7 @@ catch (Exception $e)
 
 //On récupère les 4 dernières news
 
-$req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date, \' %d/%m/%Y à %Hh%imin%ss\') AS date_ecriture FROM actus ORDER BY date DESC LIMIT O , 4' );
+$req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_crea, \' %d/%m/%Y à %Hh%imin%ss\') AS date_ecriture FROM actus ORDER BY date_crea DESC LIMIT 0 , 4' );
 //on quitte le PHP pour créer le début de page
 ?>
 
@@ -44,6 +44,7 @@ while ($donnees = $req->fetch()){ ?>
     </br>
     <em><a href="commentaires.php?actu=<?php echo $donnees['id']; ?>">Commentaires</a></em>
     </p> 
+    </div>
 <?php
 //fin de la boucle while
  } 
